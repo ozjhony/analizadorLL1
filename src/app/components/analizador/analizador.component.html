@@ -1,8 +1,81 @@
-<label *ngFor="let item of list_T">{{item}}</label>
+<!-- Cajas de texto -->
+<label>terminales</label>
+<div><input type="text" [(ngModel)]="terminales"></div>
+
 <br>
-<textarea name="comentarios" rows="10" cols="40" [(ngModel)]="lado">Escribe aquí tus comentarios</textarea>
+<label>No terminales</label>
+<div><input type="text" [(ngModel)]="noTerminales"></div>
 <br>
-<label>{{coso}}</label>
+
+<label>Inicial</label>
+<div><input type="text" [(ngModel)]="inicial"></div>
 <br>
-<button (click)="guardar()"> click</button>
+
+<label>Gramatica</label>
+<div><textarea name="comentarios" rows="10" cols="40" [(ngModel)]="caja_texto">Escribir aqui la gramatica</textarea>
+</div>
+
+
+
+
+
+<button (click)="correMetodos()"> click</button>
+
+
+
+<!-- Texto que muestra la info -->
+<h1>Primeros</h1>
+<span *ngFor="let item of primeros | keyvalue">
+    <div>
+        <h4>{{item.key}} => {{item.value}}</h4>
+    </div>
+
+</span>
+
+<h1>Siguiente</h1>
+<span *ngFor="let item of siguientes | keyvalue">
+    <div>
+        <h4>{{item.key}} => {{item.value}}</h4>
+    </div>
+</span>
+
+<h1>Tabla de analisis sintactico</h1>
+
+
+
+<table>
+    <tbody *ngFor="let i of tabla_analisis">
+        <th *ngFor="let j of i">
+            {{j}}
+        </th>
+    </tbody>
+</table>
+
+
+
+
+<h1>Ejemplo</h1>
+abcde
+<br>
+SABCDE
+<br>
+S
+<br>
+S=>ABCDE
+<br>
+S=>ab
+<br>
+A=>ab
+<br>
+A=>#
+<br>
+B=>bc
+<br>
+B=>#
+<br>
+C=>cd
+<br>
+D=>de
+<br>
+E=>e#
 <br>
